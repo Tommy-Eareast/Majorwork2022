@@ -13,3 +13,8 @@ Research about IDE has been completed. <<ATOM>> is chosen to be the IDE for this
 
 DATE: 05/04/2022
 Basic webpage structure constructed. HTML and JavaScript (algorithm) part of the software solution now in progress. Study of JavaScript and React has began from today. react Component basic build in progress.
+
+ACKNOWLEDGEMENT (external code use):
+--React Library
+--Nodejs
+--Bootstraps CSS
