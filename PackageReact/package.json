@@ -1,0 +1,19 @@
+{
+  "name": "majorwork",
+  "version": "1.0.0",
+  "description": "YuChen HSC SDD Majorwork",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EareastTommy/Majorwork2022.git"
+  },
+  "author": "Yu Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EareastTommy/Majorwork2022/issues"
+  },
+  "homepage": "https://github.com/EareastTommy/Majorwork2022#readme"
+}
