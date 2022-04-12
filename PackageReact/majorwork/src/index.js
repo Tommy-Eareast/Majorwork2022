@@ -10,7 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Clock />
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById("box")
 );
 
 // If you want to start measuring performance in your app, pass a function

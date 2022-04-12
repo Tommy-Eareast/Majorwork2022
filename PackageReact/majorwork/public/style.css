@@ -1,0 +1,25 @@
+body {
+  /* background-image: url(https://picsum.photos/1280/720?blur=5); */
+  width: 100%;
+  min-width: 300px;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+div {
+  border: 2px solid;
+}
+#left10 {
+  margin: 0px auto;
+}
+header {
+  text-align: center;
+  width: 100%;
+  box-sizing: content-box;
+}
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  margin-left: 12px;
+}
