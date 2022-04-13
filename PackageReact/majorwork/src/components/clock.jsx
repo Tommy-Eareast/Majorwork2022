@@ -1,37 +1,47 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import "./clock.css";
+const Clock = () => {
+  //primary function: displaying time
+  let now = new Date().toLocaleTimeString();
 
-class Clock extends Component {
-  state = {
-    timeFormat: true,
-    // True for 24 hour, false for 12 hour am/pm
-    date: "",
-    time: "10:08",
+  const [time, setTime] = useState(now);
+
+  const UpdateTime = () => {
+    now = new Date().toLocaleTimeString("ko-KR");
+    setTime(now);
   };
-  render() {
-    while (true) {
-      let n = Date.now();
-      wait = setTimeout(fetchTime);
-    }
-    let utcTime = new Date(n);
-    let offset = utcTime.getTimezoneOffset();
-    let localTime = new Date(Date.now(n) + offset * 60000);
-    let localNow = {
-      year: localTime.getFullYear(),
-      month: localTime.getMonth() + 1,
-      date: localTime.getDate(),
-      hour: localTime.getHours(),
-      min: localTime.getMinutes(),
-      sec: localTime.getSeconds(),
-    };
 
-    return (
-      <React.Fragment>
-        <span>{this.state.date}</span>
-        <span>{this.state.time}</span>
-        <button>Change time format</button>
-      </React.Fragment>
-    );
-  }
-}
+  setInterval(UpdateTime, 1000);
+  //secondary function: switch format
+  let format = true;
+  //true for 24 hours, false for AM/PM
+  let timeArray = time.split(":");
+  const CheckFormat = () => {
+    if (format == true) {
+    }
+  };
+
+  return (
+    <>
+      <div className="row justify-content-around">
+        <div className="col-3">
+          <span>{timeArray[0]}</span>
+        </div>
+        <div className="col-1">
+          <span>:</span>
+        </div>
+        <div className="col-3">
+          <span>{timeArray[1]}</span>
+        </div>
+        <div className="col-1">
+          <span>:</span>
+        </div>
+        <div className="col-3">
+          <span>{timeArray[2]}</span>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default Clock;
