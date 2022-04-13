@@ -17,6 +17,9 @@ Basic webpage structure constructed. HTML and JavaScript (algorithm) part of the
 DATE: 12/04/2022
 Shifting previous work from HTML and CSS files to the react folder to integrate the component and the structure page.
 
+DATE: 13/04/2022
+Complete clock function developed, supporting 12/24 hours display format. Bootstrap CSS skill developed, reframed the component with easier structure from react.
+
 ACKNOWLEDGEMENT (external code use):
 --React Library
 --Nodejs
