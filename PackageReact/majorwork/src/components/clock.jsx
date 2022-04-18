@@ -3,7 +3,8 @@ import "./clock.css";
 
 //true for 24 hours, false for AM/PM
 var format = true;
-
+var button12 = "btn btn-primary col-6 col-md-8";
+var button24 = "btn btn-primary col-6 col-md-8";
 const Clock = () => {
   //primary function: displaying time, initial first display and now variable
   let now = new Date().toLocaleTimeString();
@@ -22,7 +23,7 @@ const Clock = () => {
   let apmChange = "col-2";
   //display AM/PM block on right side depend on format=?(true/false)
   apmChange += format === false ? "" : " d-none";
-  let hour = parseInt(timeArray[0]) + 8;
+  let hour = parseInt(timeArray[0]);
   //exclude special case: 24th hour
   if (hour === 24) {
     hour = 0;
@@ -33,18 +34,17 @@ const Clock = () => {
     hour = hour - 12;
   }
   //change format to 12 hours display
-  let Change12 = () => {
-    format = false;
-  };
+  let Change12 = () => (
+    (format = false), (button12 = "btn btn-primary col-6 col-md-8")
+  );
   //change format to 24 hours display
-  let Change24 = () => {
-    format = true;
-  };
-  //add one 0 to front to placehold
-  if (hour < 10) {
-    hour = "0" + hour;
-  }
-  //use to make button animation
+  let Change24 = () => (
+    (format = true), (button24 = "btn btn-primary col-6 col-md-8")
+  );
+
+  //add one 0 to front to placehold for single digit hours
+  hour = hour < 10 ? "0" + hour : hour;
+
   return (
     <>
       <div className="row justify-content-around">
@@ -66,16 +66,10 @@ const Clock = () => {
         <div className={apmChange}>{apm}</div>
       </div>
       <div className="row justify-content-around">
-        <button
-          onClick={() => Change12()}
-          className="col-6 col-md-3 btn btn-primary"
-        >
+        <button onClick={() => Change12()} className={button12}>
           12 Hours Display
         </button>
-        <button
-          onClick={() => Change24()}
-          className="col-6 col-md-3 btn btn-secondary"
-        >
+        <button onClick={() => Change24()} className={button24}>
           24 Hours Display
         </button>
       </div>
