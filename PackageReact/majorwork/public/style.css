@@ -1,5 +1,17 @@
+@media (min-width: 768px) {
+  body {
+    background-image: url(https://picsum.photos/1280/720);
+  }
+}
+@media (max-width: 768px) {
+  body {
+    background-image: url(https://picsum.photos/720/1280);
+  }
+}
 body {
-  /* background-image: url(https://picsum.photos/1280/720?blur=5); */
+  background-color: #ffffff;
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100%;
   min-width: 300px;
   height: 100%;
@@ -8,9 +20,7 @@ body {
 }
 div {
   border: 2px solid;
-}
-#left10 {
-  margin: 0px auto;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 header {
   text-align: center;
@@ -22,4 +32,8 @@ footer {
   width: 100%;
   bottom: 0;
   margin-left: 12px;
+}
+#box {
+  margin: 0px;
+  width: 100%;
 }

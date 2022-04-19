@@ -3,8 +3,16 @@ import "./clock.css";
 
 //true for 24 hours, false for AM/PM
 var format = true;
-var button12 = "btn btn-primary col-6 col-md-8";
-var button24 = "btn btn-primary col-6 col-md-8";
+var butCom = "btn col-6 animation";
+//className for after animation
+var butOn = " btn-primary col-md-7";
+var butOff = " btn-secondary col-md-5";
+//className for animation
+var aniOn = " animationOn";
+var aniOff = " animationOff";
+//className
+var but12 = butCom + butOff;
+var but24 = butCom + butOn;
 const Clock = () => {
   //primary function: displaying time, initial first display and now variable
   let now = new Date().toLocaleTimeString();
@@ -35,11 +43,25 @@ const Clock = () => {
   }
   //change format to 12 hours display
   let Change12 = () => (
-    (format = false), (button12 = "btn btn-primary col-6 col-md-8")
+    (format = false),
+    (but12 = butCom + aniOn),
+    (but24 = butCom + aniOff),
+    //make time for the animation to play before changing class
+    setTimeout(() => {
+      but12 += butOn;
+      but24 += butOff;
+    }, 200)
   );
   //change format to 24 hours display
   let Change24 = () => (
-    (format = true), (button24 = "btn btn-primary col-6 col-md-8")
+    (format = true),
+    (but12 = butCom + aniOff),
+    (but24 = butCom + aniOn),
+    //make time for the animation to play before changing class
+    setTimeout(() => {
+      but12 += butOff;
+      but24 += butOn;
+    }, 200)
   );
 
   //add one 0 to front to placehold for single digit hours
@@ -66,10 +88,10 @@ const Clock = () => {
         <div className={apmChange}>{apm}</div>
       </div>
       <div className="row justify-content-around">
-        <button onClick={() => Change12()} className={button12}>
+        <button onClick={() => Change12()} className={but12}>
           12 Hours Display
         </button>
-        <button onClick={() => Change24()} className={button24}>
+        <button onClick={() => Change24()} className={but24}>
           24 Hours Display
         </button>
       </div>

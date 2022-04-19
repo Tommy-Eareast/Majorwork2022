@@ -6,31 +6,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import Clock from "./components/clock";
 import Timer from "./components/timer";
 
-const header = (
-  <header>
-    <nav>
-      <div className="row w-100">
-        <button onClick={clockMode} className="btn col col-6">
-          Clock
-        </button>
-        <button onClick={timerMode} className="btn col col-6">
-          Timer
-        </button>
-      </div>
-    </nav>
-  </header>
-);
-//true for clock, false for timer
-let mode;
-function clockMode() {
-  mode = true;
-}
-function timerMode() {
-  mode = false;
-}
-
 ReactDOM.render(
-  <React.StrictMode>{header}</React.StrictMode>,
+  <React.StrictMode>
+    {mode === "isClock" && <Clock />}
+    {mode === "isTimer" && <Timer />}
+  </React.StrictMode>,
   document.getElementById("box")
 );
 
