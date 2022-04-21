@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import "./clock.css";
 
 //true for 24 hours, false for AM/PM
-var format = true;
-var butCom = "btn col-6 animation";
+let format = true;
+let btnCom = "btn col-6 animation";
 //className for after animation
-var butOn = " btn-primary col-md-7";
-var butOff = " btn-secondary col-md-5";
+let btnOn = " btn-primary col-md-7";
+let btnOff = " btn-secondary col-md-5";
 //className for animation
-var aniOn = " animationOn";
-var aniOff = " animationOff";
+let aniOn = " animationOn";
+let aniOff = " animationOff";
 //className
-var but12 = butCom + butOff;
-var but24 = butCom + butOn;
+let btn12 = btnCom + btnOff;
+let btn24 = btnCom + btnOn;
 const Clock = () => {
   //primary function: displaying time, initial first display and now variable
   let now = new Date().toLocaleTimeString();
@@ -44,23 +44,23 @@ const Clock = () => {
   //change format to 12 hours display
   let Change12 = () => (
     (format = false),
-    (but12 = butCom + aniOn),
-    (but24 = butCom + aniOff),
+    (btn12 = btnCom + aniOn),
+    (btn24 = btnCom + aniOff),
     //make time for the animation to play before changing class
     setTimeout(() => {
-      but12 += butOn;
-      but24 += butOff;
+      btn12 += btnOn;
+      btn24 += btnOff;
     }, 200)
   );
   //change format to 24 hours display
   let Change24 = () => (
     (format = true),
-    (but12 = butCom + aniOff),
-    (but24 = butCom + aniOn),
+    (btn12 = btnCom + aniOff),
+    (btn24 = btnCom + aniOn),
     //make time for the animation to play before changing class
     setTimeout(() => {
-      but12 += butOff;
-      but24 += butOn;
+      btn12 += btnOff;
+      btn24 += btnOn;
     }, 200)
   );
 
@@ -70,28 +70,28 @@ const Clock = () => {
   return (
     <>
       <div className="row justify-content-around">
-        <div className="col-2">
+        <div className="col-2 text-center">
           <span>{hour}</span>
         </div>
-        <div className="col-1">
+        <div className="col-1 text-center">
           <span>:</span>
         </div>
-        <div className="col-2">
+        <div className="col-2 text-center">
           <span>{timeArray[1]}</span>
         </div>
-        <div className="col-1">
+        <div className="col-1 text-center">
           <span>:</span>
         </div>
-        <div className="col-2">
+        <div className="col-2 text-center">
           <span>{timeArray[2]}</span>
         </div>
-        <div className={apmChange}>{apm}</div>
+        <div className={apmChange + " text-center"}>{apm}</div>
       </div>
       <div className="row justify-content-around">
-        <button onClick={() => Change12()} className={but12}>
+        <button onClick={() => Change12()} className={btn12}>
           12 Hours Display
         </button>
-        <button onClick={() => Change24()} className={but24}>
+        <button onClick={() => Change24()} className={btn24}>
           24 Hours Display
         </button>
       </div>
