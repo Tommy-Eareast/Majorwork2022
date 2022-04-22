@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./timer.css";
 
 //btn appearance through bootstrap css
 let btnCom = "btn col-4 btn-";
 let btnLeft = btnCom + "success";
-let left = "Start";
+//default word
+var left = "Start";
 //only allow counting when this true
 let allowCount = false;
+
 //initialise the timer, counter[0] is minute, counter[1] is second, and counter[2] is milliseconds
 const counter = {
   hour: 0,
@@ -16,7 +18,29 @@ const counter = {
 };
 
 const Timer = () => {
+  let AllowCount = () => (
+    (if (allowCount) {
+      allowCount = false;
+    } else {
+      allowCount = true;
+    })
+  );
+
   const [currentCount, setCurrentCount] = useState(counter);
+
+  useEffect(() => {
+    const counting = setInterval(() => {
+      countUp();
+    }, 10);
+    return () => clearInterval(counting);
+  }, []);
+
+  function countUp() {
+    if (allowCount) {
+      console.log("Hello world!");
+    }
+  }
+
   return (
     <>
       <div className="row justify-content-around">
@@ -43,7 +67,9 @@ const Timer = () => {
         </div>
       </div>
       <div className="row justify-content-between">
-        <button className={btnLeft}>{left}</button>
+        <button className={btnLeft} onClick={() => AllowCount()}>
+          {left}
+        </button>
         <button className={btnCom + "danger"}>Stop</button>
       </div>
     </>

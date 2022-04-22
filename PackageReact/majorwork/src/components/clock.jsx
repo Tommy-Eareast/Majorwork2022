@@ -30,7 +30,7 @@ const Clock = () => {
   //secondary function: switch format, initial default to 24 hours display
   let apmChange = "col-2";
   //display AM/PM block on right side depend on format=?(true/false)
-  apmChange += format === false ? "" : " d-none";
+  apmChange += !format ? "" : " d-none";
   let hour = parseInt(timeArray[0]);
   //exclude special case: 24th hour
   if (hour === 24) {
