@@ -35,6 +35,7 @@ const Clock = () => {
     hour = 0;
   }
   let apm = format ? " d-none" : "";
+  let apmText = hour > 11 ? "PM" : "AM";
   //if is in 12 hour format display AND hour is more than 12, make hours in 12 hour display
   if (!format && hour > 12) {
     hour = hour - 12;
@@ -85,9 +86,7 @@ const Clock = () => {
         <div className="col-2 text-center">
           <span>{timeArray[2]}</span>
         </div>
-        <div className={"col-2 text-center" + apm}>
-          {hour > 11 ? "PM" : "AM"}
-        </div>
+        <div className={"col-2 text-center" + apm}>{apmText}</div>
       </div>
       <div className="row justify-content-around">
         <button onClick={() => Change12()} className={btn12}>
