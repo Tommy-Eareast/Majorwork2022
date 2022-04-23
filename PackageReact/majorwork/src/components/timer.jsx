@@ -3,75 +3,94 @@ import "./timer.css";
 
 //btn appearance through bootstrap css
 let btnCom = "btn col-4 btn-";
-let btnLeft = btnCom + "success";
-//default word
-var left = "Start";
-//only allow counting when this true
-let allowCount = false;
 
-//initialise the timer, counter[0] is minute, counter[1] is second, and counter[2] is milliseconds
-const counter = {
-  hour: 0,
-  min: 0,
-  sec: 0,
-  millisec: 0,
+//recorded timestamps
+const RecordList = () => {
+  const [timestamps, setTimestamps] = useState("");
+  return (
+    <>
+      <div className="w-100">{timestamps}</div>
+    </>
+  );
 };
 
+//timer component
 const Timer = () => {
-  let AllowCount = () => (
-    (if (allowCount) {
-      allowCount = false;
-    } else {
-      allowCount = true;
-    })
-  );
+  //only allow counting when this true
+  const [allowCount, setAllowCount] = useState(false);
+  //initialise the counter
+  const [counter, setCounter] = useState(0);
+  //counting function
+  const AllowCount = () => {
+    setAllowCount(!allowCount);
+  };
+  //default word
+  let btnColor = allowCount ? "warning" : "success";
 
-  const [currentCount, setCurrentCount] = useState(counter);
-
+  //counting function
   useEffect(() => {
-    const counting = setInterval(() => {
-      countUp();
-    }, 10);
-    return () => clearInterval(counting);
-  }, []);
-
-  function countUp() {
+    //set up a counting variable
+    let counting = undefined;
+    //start counting when allowCount is true
     if (allowCount) {
-      console.log("Hello world!");
+      //set up looping function
+      counting = setInterval(() => {
+        setCounter((counter) => counter + 10);
+      }, 10);
     }
-  }
+    //stop timer when allowCount is false
+    return () => clearInterval(counting);
+  }, [allowCount]);
+
+  //reset the timer function
+  const ResetTimer = () => {
+    setAllowCount(false);
+    setCounter(0);
+    //deleteRecord()
+  };
+  //initialise time display
+  const time = {
+    hours: Math.floor(counter / (1000 * 60 * 60)),
+    min: Math.floor((counter / (1000 * 60)) % 60),
+    sec: Math.floor((counter / 1000) % 60),
+    millisec: (counter % 1000) / 10,
+  };
 
   return (
     <>
       <div className="row justify-content-around">
         <div className="col-2 text-center">
-          <span>{currentCount.hour}</span>
+          <span>{time.hours}</span>
         </div>
         <div className="col-1 text-center">
           <span>h</span>
         </div>
         <div className="col-2 text-center">
-          <span>{currentCount.min}</span>
+          <span>{time.min}</span>
         </div>
         <div className="col-1 text-center">
           <span>m</span>
         </div>
         <div className="col-2 text-center">
-          <span>{currentCount.sec}</span>
+          <span>{time.sec}</span>
         </div>
         <div className="col-1 text-center">
           <span>s</span>
         </div>
         <div className="col-2 text-center">
-          <span>{currentCount.millisec}</span>
+          <span>{time.millisec}</span>
         </div>
       </div>
       <div className="row justify-content-between">
-        <button className={btnLeft} onClick={() => AllowCount()}>
-          {left}
+        <button className={btnCom + btnColor} onClick={() => AllowCount()}>
+          {allowCount ? "Stop" : "Start"}
         </button>
-        <button className={btnCom + "danger"}>Stop</button>
+        <button className={btnCom + "info"}>Record</button>
+        <button className={btnCom + "danger"} onClick={() => ResetTimer()}>
+          Reset
+        </button>
       </div>
+      <RecordList />
     </>
   );
 };

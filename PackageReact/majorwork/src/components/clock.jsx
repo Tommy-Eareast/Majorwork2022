@@ -24,26 +24,25 @@ const Clock = () => {
     setTime(now);
   };
   //repeating above function to renew the time displayed
-  setInterval(UpdateTime, 500);
+  setInterval(() => {
+    UpdateTime();
+  }, 500);
   //format the time variable for separate display
   let timeArray = time.split(":");
-  //secondary function: switch format, initial default to 24 hours display
-  let apmChange = "col-2";
-  //display AM/PM block on right side depend on format=?(true/false)
-  apmChange += !format ? "" : " d-none";
   let hour = parseInt(timeArray[0]);
   //exclude special case: 24th hour
   if (hour === 24) {
     hour = 0;
   }
-  //determine AM or PM
-  let apm = hour > 11 ? "PM" : "AM";
+  let apm = format ? " d-none" : "";
+  //if is in 12 hour format display AND hour is more than 12, make hours in 12 hour display
   if (!format && hour > 12) {
     hour = hour - 12;
   }
   //change format to 12 hours display
   let Change12 = () => (
     (format = false),
+    //change the button size and color
     (btn12 = btnCom + aniOn),
     (btn24 = btnCom + aniOff),
     //make time for the animation to play before changing class
@@ -55,6 +54,7 @@ const Clock = () => {
   //change format to 24 hours display
   let Change24 = () => (
     (format = true),
+    //change the button size and color
     (btn12 = btnCom + aniOff),
     (btn24 = btnCom + aniOn),
     //make time for the animation to play before changing class
@@ -71,7 +71,7 @@ const Clock = () => {
     <>
       <div className="row justify-content-around">
         <div className="col-2 text-center">
-          <span>{hour}</span>
+          <span>{String(hour)}</span>
         </div>
         <div className="col-1 text-center">
           <span>:</span>
@@ -85,7 +85,9 @@ const Clock = () => {
         <div className="col-2 text-center">
           <span>{timeArray[2]}</span>
         </div>
-        <div className={apmChange + " text-center"}>{apm}</div>
+        <div className={"col-2 text-center" + apm}>
+          {hour > 11 ? "PM" : "AM"}
+        </div>
       </div>
       <div className="row justify-content-around">
         <button onClick={() => Change12()} className={btn12}>
