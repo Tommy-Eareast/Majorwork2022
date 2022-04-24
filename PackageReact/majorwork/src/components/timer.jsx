@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./timer.css";
+//this file has no css because all is integrated into style.css -- the main css page
+//this is not a good practice but since only a few component requires css in this page, it is utilised
 
 //btn appearance through bootstrap css
 let btnCom = "btn col-4 btn-";
@@ -63,6 +64,14 @@ const Timer = () => {
   let displayMin = time.hours == 0 && time.min == 0 ? false : true;
   //record timestamp function
   const RecordTimestamp = (time) => {
+    if (timestamps.length > 9) {
+      alert(
+        "Max number or record reached! (10 max)" +
+          "\n" +
+          "Press reset to restart timer."
+      );
+      return;
+    }
     let record = undefined;
     if (!allowCount) return;
     if (displayHours) {
@@ -87,35 +96,35 @@ const Timer = () => {
   };
   return (
     <>
-      <div className="row justify-content-around">
+      <div className="row justify-content-around displayblock">
         {displayHours && (
           <div className="col-2 text-center">
-            <span>{time.hours}</span>
+            <span className="displayfont">{time.hours}</span>
           </div>
         )}
         {displayHours && (
           <div className="col-1 text-center">
-            <span>:</span>
+            <span className="displayfont">:</span>
           </div>
         )}
         {displayMin && (
           <div className="col-2 text-center">
-            <span>{time.min}</span>
+            <span className="displayfont">{time.min}</span>
           </div>
         )}
         {displayMin && (
           <div className="col-1 text-center">
-            <span>:</span>
+            <span className="displayfont">:</span>
           </div>
         )}
         <div className="col-2 text-center">
-          <span>{time.sec}</span>
+          <span className="displayfont">{time.sec}</span>
         </div>
         <div className="col-2 text-center">
-          <span>.</span>
+          <span className="displayfont">.</span>
         </div>
         <div className="col-2 text-center">
-          <span>{time.millisec}</span>
+          <span className="displayfont">{time.millisec}</span>
         </div>
       </div>
       <div className="row justify-content-between">
@@ -132,7 +141,7 @@ const Timer = () => {
           Reset
         </button>
       </div>
-      <div className="w-100">
+      <div className="w-100 displayrecord">
         Recorded Timestamp:
         <span>
           {timestamps.map((timestamp) => (

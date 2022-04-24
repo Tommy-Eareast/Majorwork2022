@@ -1,26 +1,32 @@
 @media (min-width: 768px) {
-  body {
-    background-image: url(https://picsum.photos/1280/720);
+  html {
+    background-image: url(https://picsum.photos/1366/768?blur=3);
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  #box {
+    background-image: url(https://picsum.photos/1366/768?blur=3);
+    background-repeat: no-repeat;
+    background-position: top center;
   }
 }
 @media (max-width: 768px) {
-  body {
-    background-image: url(https://picsum.photos/720/1280);
+  html {
+    background-image: url(https://picsum.photos/768/1366?blur=3);
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  #box {
+    background-image: url(https://picsum.photos/768/1366?blur=3);
+    background-repeat: no-repeat;
+    background-position: top center;
   }
 }
 body {
-  background-color: #ffffff;
-  background-size: cover;
-  background-repeat: no-repeat;
   width: 100%;
   min-width: 300px;
-  height: 100%;
   margin: 0px;
   padding: 0px;
-}
-div {
-  border: 2px solid;
-  background-color: rgba(255, 255, 255, 0.3);
 }
 header {
   text-align: center;
@@ -31,12 +37,63 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
-  margin-left: 12px;
+  padding-left: 6px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border-radius: 10px;
+  z-index: -1000;
+}
+footer svg {
+  color: #fff;
+}
+footer a {
+  text-decoration: none;
+  color: #fff;
 }
 #box {
   margin: 0px;
   width: 100%;
+  z-index: 1000;
 }
 .row {
   --bs-gutter-x: 0 !important;
+}
+button {
+  height: 6vw !important;
+  font-size: 2vw !important;
+  border-radius: 10px !important;
+}
+.displayfont {
+  font-size: 6vw;
+  color: rgba(255, 213, 36, 0.8);
+}
+.displayblock {
+  height: 30vh;
+  border-radius: 8px;
+  align-items: center !important;
+  background: rgb(41, 8, 73);
+  background: radial-gradient(
+    circle,
+    rgba(41, 8, 73, 0.8) 85%,
+    rgba(255, 213, 36, 0.1) 100%
+  ) !important;
+}
+.displayrecord {
+  padding: 7px;
+  font-size: 2vw !important;
+  border-radius: 8px !important;
+  color: rgba(255, 213, 36, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(236, 182, 2, 0.2) 10%,
+    rgba(41, 8, 73, 0.8) 90%
+  ) !important;
+}
+.email-icon .before-hover,
+.email-icon:hover .after-hover {
+  display: inline;
+}
+.email-icon .after-hover,
+.email-icon:hover .before-hover {
+  display: none;
 }
