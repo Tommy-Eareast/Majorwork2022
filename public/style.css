@@ -25,6 +25,7 @@
 body {
   width: 100%;
   min-width: 300px;
+  height: 100%;
   margin: 0px;
   padding: 0px;
 }
@@ -55,6 +56,12 @@ footer a {
   width: 100%;
   z-index: 1000;
 }
+.bgcolor {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  background-color: rgba(41, 8, 73, 0.8);
+}
 .row {
   --bs-gutter-x: 0 !important;
 }
@@ -67,16 +74,16 @@ button {
   font-size: 6vw;
   color: rgba(255, 213, 36, 0.8);
 }
-.displayblock {
-  height: 30vh;
+.displayclock {
   border-radius: 8px;
-  align-items: center !important;
-  background: rgb(41, 8, 73);
-  background: radial-gradient(
-    circle,
-    rgba(41, 8, 73, 0.8) 85%,
-    rgba(255, 213, 36, 0.1) 100%
-  ) !important;
+  display: flex;
+  min-height: 400px;
+  height: 30vh;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.displaytimer {
+  border-radius: 8px;
 }
 .displayrecord {
   padding: 7px;
@@ -86,13 +93,15 @@ button {
   background: linear-gradient(
     0deg,
     rgba(236, 182, 2, 0.6) 10%,
-    rgba(41, 8, 73, 0.6) 90%
+    rgba(0, 0, 0, 0) 100%
   ) !important;
 }
 .displayrecord .record {
-  color: rgba(41, 8, 73, 1);
-  outline: 1px solid rgba(236, 182, 2, 1);
-  outline-offset: -1px;
+  border-top: 1px dashed rgba(236, 182, 2, 1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 45vw !important;
 }
 .email-icon .before-hover,
 .email-icon:hover .after-hover {
@@ -104,12 +113,24 @@ button {
 }
 .smallbtn {
   font-size: 1.4vw !important;
-  height: 2vw !important;
-  padding-bottom: 22px;
+  height: auto !important;
   background: linear-gradient(
     180deg,
     rgba(236, 182, 2, 1) 10%,
     rgba(41, 8, 73, 0.3) 90%
   ) !important;
   color: #ff0000;
+}
+.storage {
+  height: 36vh;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.at-bottom {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }

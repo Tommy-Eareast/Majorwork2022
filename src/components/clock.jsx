@@ -15,21 +15,28 @@ let btn12 = btnCom + btnOff;
 let btn24 = btnCom + btnOn;
 const Clock = () => {
   //primary function: displaying time, initial first display and now variable
-  let now = new Date().toLocaleTimeString();
+  let now = new Date().toLocaleString();
   //set up the main object and its function
   const [time, setTime] = useState(now);
   //create a updating function that convert time object into string for display
   const UpdateTime = () => {
-    now = new Date().toLocaleTimeString();
+    now = new Date().toLocaleString();
     setTime(now);
   };
   //repeating above function to renew the time displayed
   setInterval(() => {
     UpdateTime();
-  }, 500);
+  }, 1000);
+  //date and time array
+  let array = time.split(" ");
+  //date display
+  let dateArray = array[0].split("/");
   //format the time variable for separate display
-  let timeArray = time.split(":");
+  let timeArray = array[1].split(":");
+  console.log(dateArray, timeArray);
   let hour = parseInt(timeArray[0]);
+  let month = parseInt(dateArray[1]);
+  let date = parseInt(dateArray[2]);
   //exclude special case: 24th hour
   if (hour === 24) {
     hour = 0;
@@ -67,28 +74,48 @@ const Clock = () => {
 
   //add one 0 to front to placehold for single digit hours
   hour = hour < 10 ? "0" + hour : hour;
-
+  month = month < 10 ? "0" + month : month;
+  date = date < 10 ? "0" + date : date;
   return (
     <>
-      <div className="row justify-content-around displayblock">
-        <div className="col-2 text-center">
-          <span className="displayfont">{String(hour)}</span>
+      <div className="displayclock">
+        <div className="row justify-content-center">
+          <div className="col-2 text-center">
+            <span className="displayfont">{String(hour)}</span>
+          </div>
+          <div className="col-1 text-center">
+            <span className="displayfont">:</span>
+          </div>
+          <div className="col-2 text-center">
+            <span className="displayfont">{timeArray[1]}</span>
+          </div>
+          <div className="col-1 text-center">
+            <span className="displayfont">:</span>
+          </div>
+          <div className="col-2 text-center">
+            <span className="displayfont">{timeArray[2]}</span>
+          </div>
+          <div className={"col-2 text-center displayfont" + apm}>{apmText}</div>
         </div>
-        <div className="col-1 text-center">
-          <span className="displayfont">:</span>
+        <div className="row justify-content-center">
+          <div className="col-2 text-center">
+            <span className="displayfont">{date}</span>
+          </div>
+          <div className="col-1 text-center">
+            <span className="displayfont">/</span>
+          </div>
+          <div className="col-2 text-center">
+            <span className="displayfont">{month}</span>
+          </div>
+          <div className="col-1 text-center">
+            <span className="displayfont">/</span>
+          </div>
+          <div className="col-2 text-center">
+            <span className="displayfont">{dateArray[0]}</span>
+          </div>
         </div>
-        <div className="col-2 text-center">
-          <span className="displayfont">{timeArray[1]}</span>
-        </div>
-        <div className="col-1 text-center">
-          <span className="displayfont">:</span>
-        </div>
-        <div className="col-2 text-center">
-          <span className="displayfont">{timeArray[2]}</span>
-        </div>
-        <div className={"col-2 text-center displayfont" + apm}>{apmText}</div>
       </div>
-      <div className="row justify-content-around">
+      <div className="row justify-content-around at-bottom">
         <button onClick={() => Change12()} className={btn12}>
           12 Hours Display
         </button>

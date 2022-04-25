@@ -103,64 +103,68 @@ const Timer = () => {
   };
   return (
     <>
-      <div className="row justify-content-around displayblock">
-        {displayHours && (
-          <div className="col-2 text-center">
-            <span className="displayfont">{time.hours}</span>
-          </div>
-        )}
-        {displayHours && (
-          <div className="col-1 text-center">
-            <span className="displayfont">:</span>
-          </div>
-        )}
-        {displayMin && (
-          <div className="col-2 text-center">
-            <span className="displayfont">{time.min}</span>
-          </div>
-        )}
-        {displayMin && (
-          <div className="col-1 text-center">
-            <span className="displayfont">:</span>
-          </div>
-        )}
-        <div className="col-2 text-center">
-          <span className="displayfont">{time.sec}</span>
-        </div>
-        <div className="col-2 text-center">
-          <span className="displayfont">.</span>
-        </div>
-        <div className="col-2 text-center">
-          <span className="displayfont">{time.millisec}</span>
-        </div>
-      </div>
-      <div className="row justify-content-between">
-        <button className={btnCom + btnColor} onClick={() => AllowCount()}>
-          {allowCount ? "Stop" : "Start"}
-        </button>
-        <button
-          className={btnCom + "info"}
-          onClick={() => RecordTimestamp(time)}
-        >
-          Record
-        </button>
-        <button className={btnCom + "danger"} onClick={() => ResetTimer()}>
-          Reset
-        </button>
-      </div>
-      <div className="w-100 displayrecord">
-        Recorded Timestamp:
-        <span>
-          {timestamps.map((timestamp, index) => (
-            <div className="record text-center">
-              Record No.{index + 1} : {timestamp.record} [
-              <button className="smallbtn" onClick={() => RemoveRecord(index)}>
-                Delete
-              </button>
-              ]
+      <div className="displaytimer">
+        <div className="row h-100 justify-content-center">
+          {displayHours && (
+            <div className="col-2 text-center">
+              <span className="displayfont">{time.hours}</span>
             </div>
-          ))}
-        </span>
+          )}
+          {displayHours && (
+            <div className="col-1 text-center">
+              <span className="displayfont">:</span>
+            </div>
+          )}
+          {displayMin && (
+            <div className="col-2 text-center">
+              <span className="displayfont">{time.min}</span>
+            </div>
+          )}
+          {displayMin && (
+            <div className="col-1 text-center">
+              <span className="displayfont">:</span>
+            </div>
+          )}
+          <div className="col-2 text-center">
+            <span className="displayfont">{time.sec}</span>
+          </div>
+          <div className="col-2 text-center">
+            <span className="displayfont">.</span>
+          </div>
+          <div className="col-2 text-center">
+            <span className="displayfont">{time.millisec}</span>
+          </div>
+        </div>
+        <div className="w-100 displayrecord">
+          Recorded Timestamp:
+          <div className="storage">
+            {timestamps.map((timestamp, index, key) => (
+              <div className="record">
+                Record No.{index + 1} : {timestamp.record}
+                <button
+                  className="smallbtn"
+                  onClick={() => RemoveRecord(index)}
+                >
+                  Delete
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="row justify-content-between at-bottom">
+          <button className={btnCom + btnColor} onClick={() => AllowCount()}>
+            {allowCount ? "Stop" : "Start"}
+          </button>
+          <button
+            className={btnCom + "info"}
+            onClick={() => RecordTimestamp(time)}
+          >
+            Record
+          </button>
+          <button className={btnCom + "danger"} onClick={() => ResetTimer()}>
+            Reset
+          </button>
+        </div>
       </div>
     </>
   );
