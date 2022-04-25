@@ -41,29 +41,29 @@ const Clock = () => {
     hour = hour - 12;
   }
   //change format to 12 hours display
-  let Change12 = () => (
-    (format = false),
+  let Change12 = () => {
+    format = false;
     //change the button size and color
-    (btn12 = btnCom + aniOn),
-    (btn24 = btnCom + aniOff),
+    btn12 = btnCom + aniOn;
+    btn24 = btnCom + aniOff;
     //make time for the animation to play before changing class
     setTimeout(() => {
       btn12 += btnOn;
       btn24 += btnOff;
-    }, 200)
-  );
+    }, 200);
+  };
   //change format to 24 hours display
-  let Change24 = () => (
-    (format = true),
+  let Change24 = () => {
+    format = true;
     //change the button size and color
-    (btn12 = btnCom + aniOff),
-    (btn24 = btnCom + aniOn),
+    btn12 = btnCom + aniOff;
+    btn24 = btnCom + aniOn;
     //make time for the animation to play before changing class
     setTimeout(() => {
       btn12 += btnOff;
       btn24 += btnOn;
-    }, 200)
-  );
+    }, 200);
+  };
 
   //add one 0 to front to placehold for single digit hours
   hour = hour < 10 ? "0" + hour : hour;

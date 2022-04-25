@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 
 //btn appearance through bootstrap css
 let btnCom = "btn col-4 btn-";
+
 //timer component
 const Timer = () => {
   //only allow counting when this true
@@ -60,15 +61,16 @@ const Timer = () => {
     time.millisec = "0" + String(time.millisec);
   }
   //display only seconds and milliseconds / minutes if counter less than 1 minute / 1 hour
-  let displayHours = time.hours != 0 ? true : false;
-  let displayMin = time.hours == 0 && time.min == 0 ? false : true;
+  let displayHours = parseInt(time.hours) !== 0 ? true : false;
+  let displayMin =
+    parseInt(time.hours) === 0 && parseInt(time.min) === 0 ? false : true;
   //record timestamp function
-  const RecordTimestamp = (time) => {
+  const RecordTimestamp = (time, index) => {
     if (timestamps.length > 9) {
       alert(
         "Max number or record reached! (10 max)" +
           "\n" +
-          "Press reset to restart timer."
+          "Press reset to restart timer or delete existing record."
       );
       return;
     }
@@ -92,6 +94,11 @@ const Timer = () => {
     //make new array with inserted timestamp
     const newRecord = [...timestamps, { record }];
     //update the state with newRecord
+    setTimestamps(newRecord);
+  };
+  const RemoveRecord = (index) => {
+    const newRecord = [...timestamps];
+    newRecord.splice(index, 1);
     setTimestamps(newRecord);
   };
   return (
@@ -144,8 +151,14 @@ const Timer = () => {
       <div className="w-100 displayrecord">
         Recorded Timestamp:
         <span>
-          {timestamps.map((timestamp) => (
-            <div className="text-center">{timestamp.record}</div>
+          {timestamps.map((timestamp, index) => (
+            <div className="record text-center">
+              Record No.{index + 1} : {timestamp.record} [
+              <button className="smallbtn" onClick={() => RemoveRecord(index)}>
+                Delete
+              </button>
+              ]
+            </div>
           ))}
         </span>
       </div>

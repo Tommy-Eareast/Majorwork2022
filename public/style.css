@@ -59,7 +59,7 @@ footer a {
   --bs-gutter-x: 0 !important;
 }
 button {
-  height: 6vw !important;
+  height: 6vw;
   font-size: 2vw !important;
   border-radius: 10px !important;
 }
@@ -82,12 +82,17 @@ button {
   padding: 7px;
   font-size: 2vw !important;
   border-radius: 8px !important;
-  color: rgba(255, 213, 36, 1);
+  color: rgba(236, 182, 2, 1);
   background: linear-gradient(
     0deg,
-    rgba(236, 182, 2, 0.2) 10%,
-    rgba(41, 8, 73, 0.8) 90%
+    rgba(236, 182, 2, 0.6) 10%,
+    rgba(41, 8, 73, 0.6) 90%
   ) !important;
+}
+.displayrecord .record {
+  color: rgba(41, 8, 73, 1);
+  outline: 1px solid rgba(236, 182, 2, 1);
+  outline-offset: -1px;
 }
 .email-icon .before-hover,
 .email-icon:hover .after-hover {
@@ -96,4 +101,15 @@ button {
 .email-icon .after-hover,
 .email-icon:hover .before-hover {
   display: none;
+}
+.smallbtn {
+  font-size: 1.4vw !important;
+  height: 2vw !important;
+  padding-bottom: 22px;
+  background: linear-gradient(
+    180deg,
+    rgba(236, 182, 2, 1) 10%,
+    rgba(41, 8, 73, 0.3) 90%
+  ) !important;
+  color: #ff0000;
 }
