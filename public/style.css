@@ -1,25 +1,17 @@
 @media (min-width: 768px) {
-  html {
-    background-image: url(https://picsum.photos/1366/768?blur=3);
-    background-repeat: no-repeat;
-    background-position: top center;
-  }
   #box {
     background-image: url(https://picsum.photos/1366/768?blur=3);
     background-repeat: no-repeat;
-    background-position: top center;
+    background-position: center;
+    background-size: center;
   }
 }
 @media (max-width: 768px) {
-  html {
-    background-image: url(https://picsum.photos/768/1366?blur=3);
-    background-repeat: no-repeat;
-    background-position: top center;
-  }
   #box {
     background-image: url(https://picsum.photos/768/1366?blur=3);
     background-repeat: no-repeat;
-    background-position: top center;
+    background-position: center;
+    background-size: center;
   }
 }
 body {
@@ -35,9 +27,6 @@ header {
   box-sizing: content-box;
 }
 footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
   padding-left: 6px;
   background-color: rgba(0, 0, 0, 0.7);
   color: #fff;
@@ -53,12 +42,13 @@ footer a {
 }
 #box {
   margin: 0px;
+  padding: 0px;
+  height: 100%;
   width: 100%;
   z-index: 1000;
 }
 .bgcolor {
-  width: 100vw;
-  height: 100vh;
+  height: 100%;
   margin: 0px;
   background-color: rgba(41, 8, 73, 0.8);
 }
@@ -66,42 +56,39 @@ footer a {
   --bs-gutter-x: 0 !important;
 }
 button {
-  height: 6vw;
-  font-size: 2vw !important;
-  border-radius: 10px !important;
+  height: 2.6rem;
+  font-size: 1rem !important;
 }
 .displayfont {
-  font-size: 6vw;
+  font-size: 2.6rem;
   color: rgba(255, 213, 36, 0.8);
 }
-.displayclock {
-  border-radius: 8px;
-  display: flex;
-  min-height: 400px;
-  height: 30vh;
-  flex-direction: column;
-  justify-content: space-around;
-}
+.displayclock,
 .displaytimer {
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  justify-content: space-between;
+  min-height: 92.5vh;
 }
 .displayrecord {
-  padding: 7px;
-  font-size: 2vw !important;
+  padding-left: 6px;
+  font-size: 1.6vw !important;
   border-radius: 8px !important;
   color: rgba(236, 182, 2, 1);
   background: linear-gradient(
     0deg,
-    rgba(236, 182, 2, 0.6) 10%,
+    rgba(126, 97, 1, 0.6) 10%,
     rgba(0, 0, 0, 0) 100%
   ) !important;
 }
 .displayrecord .record {
   border-top: 1px dashed rgba(236, 182, 2, 1);
+  padding: 2px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 45vw !important;
+  width: 33%;
 }
 .email-icon .before-hover,
 .email-icon:hover .after-hover {
@@ -112,25 +99,18 @@ button {
   display: none;
 }
 .smallbtn {
-  font-size: 1.4vw !important;
-  height: auto !important;
-  background: linear-gradient(
-    180deg,
-    rgba(236, 182, 2, 1) 10%,
-    rgba(41, 8, 73, 0.3) 90%
-  ) !important;
-  color: #ff0000;
+  background: rgba(41, 8, 73, 0.8);
+  color: rgba(236, 182, 2, 1);
+  border-radius: 10px;
+  height: 2rem;
 }
 .storage {
-  height: 36vh;
-  min-height: 180px;
+  height: 24rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
 }
-.at-bottom {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+.topdiv {
+  padding-top: 22vh;
 }

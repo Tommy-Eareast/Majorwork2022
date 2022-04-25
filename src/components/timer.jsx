@@ -66,9 +66,9 @@ const Timer = () => {
     parseInt(time.hours) === 0 && parseInt(time.min) === 0 ? false : true;
   //record timestamp function
   const RecordTimestamp = (time, index) => {
-    if (timestamps.length > 9) {
+    if (timestamps.length > 19) {
       alert(
-        "Max number or record reached! (10 max)" +
+        "Max number or record reached! (20 max)" +
           "\n" +
           "Press reset to restart timer or delete existing record."
       );
@@ -140,7 +140,7 @@ const Timer = () => {
           <div className="storage">
             {timestamps.map((timestamp, index, key) => (
               <div className="record">
-                Record No.{index + 1} : {timestamp.record}
+                No.{index + 1} : {timestamp.record}
                 <button
                   className="smallbtn"
                   onClick={() => RemoveRecord(index)}
@@ -151,7 +151,7 @@ const Timer = () => {
             ))}
           </div>
         </div>
-        <div className="row justify-content-between at-bottom">
+        <div className="row justify-content-between">
           <button className={btnCom + btnColor} onClick={() => AllowCount()}>
             {allowCount ? "Stop" : "Start"}
           </button>

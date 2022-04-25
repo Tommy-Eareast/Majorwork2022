@@ -79,7 +79,7 @@ const Clock = () => {
   return (
     <>
       <div className="displayclock">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center topdiv">
           <div className="col-2 text-center">
             <span className="displayfont">{String(hour)}</span>
           </div>
@@ -111,17 +111,17 @@ const Clock = () => {
             <span className="displayfont">/</span>
           </div>
           <div className="col-2 text-center">
-            <span className="displayfont">{dateArray[0]}</span>
+            <span className="displayfont">{dateArray[0].slice(-2)}</span>
           </div>
         </div>
-      </div>
-      <div className="row justify-content-around at-bottom">
-        <button onClick={() => Change12()} className={btn12}>
-          12 Hours Display
-        </button>
-        <button onClick={() => Change24()} className={btn24}>
-          24 Hours Display
-        </button>
+        <div className="row justify-content-around">
+          <button onClick={() => Change12()} className={btn12}>
+            12 Hours Display
+          </button>
+          <button onClick={() => Change24()} className={btn24}>
+            24 Hours Display
+          </button>
+        </div>
       </div>
     </>
   );
