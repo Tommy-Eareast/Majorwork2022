@@ -33,7 +33,6 @@ const Clock = () => {
   let dateArray = array[0].split("/");
   //format the time variable for separate display
   let timeArray = array[1].split(":");
-  console.log(dateArray, timeArray);
   let hour = parseInt(timeArray[0]);
   let month = parseInt(dateArray[1]);
   let date = parseInt(dateArray[2]);

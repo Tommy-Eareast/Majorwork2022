@@ -28,8 +28,8 @@ const Timer = () => {
     if (allowCount) {
       //set up looping function
       counting = setInterval(() => {
-        setCounter((counter) => counter + 10);
-      }, 10);
+        setCounter((counter) => counter + 17);
+      }, 17);
     }
     //stop timer when allowCount is false
     return () => clearInterval(counting);
@@ -48,7 +48,7 @@ const Timer = () => {
     hours: Math.floor(counter / (1000 * 60 * 60)),
     min: Math.floor((counter / (1000 * 60)) % 60),
     sec: Math.floor((counter / 1000) % 60),
-    millisec: (counter % 1000) / 10,
+    millisec: counter % 1000,
   };
   //fill in "0" when single digit
   if (time.min < 10) {
@@ -58,6 +58,8 @@ const Timer = () => {
     time.sec = "0" + String(time.sec);
   }
   if (time.millisec < 10) {
+    time.millisec = "00" + String(time.millisec);
+  } else if (time.millisec < 100) {
     time.millisec = "0" + String(time.millisec);
   }
   //display only seconds and milliseconds / minutes if counter less than 1 minute / 1 hour
@@ -116,7 +118,7 @@ const Timer = () => {
             </div>
           )}
           {displayMin && (
-            <div className="col-2 text-center">
+            <div className="col-1 text-center">
               <span className="displayfont">{time.min}</span>
             </div>
           )}
@@ -125,10 +127,10 @@ const Timer = () => {
               <span className="displayfont">:</span>
             </div>
           )}
-          <div className="col-2 text-center">
+          <div className="col-1 text-center">
             <span className="displayfont">{time.sec}</span>
           </div>
-          <div className="col-2 text-center">
+          <div className="col-1 text-center">
             <span className="displayfont">.</span>
           </div>
           <div className="col-2 text-center">

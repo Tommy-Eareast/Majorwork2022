@@ -16,7 +16,7 @@
 }
 body {
   width: 100%;
-  min-width: 300px;
+  min-width: 375px;
   height: 100%;
   margin: 0px;
   padding: 0px;
@@ -88,7 +88,8 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 33%;
+  width: 33.33%;
+  overflow: hidden;
 }
 .email-icon .before-hover,
 .email-icon:hover .after-hover {
