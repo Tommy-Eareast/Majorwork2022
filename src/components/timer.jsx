@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 
 //btn appearance through bootstrap css
 let btnCom = "btn col-4 btn-";
-
 //timer component
 const Timer = () => {
   //only allow counting when this true
@@ -13,10 +12,13 @@ const Timer = () => {
   const [counter, setCounter] = useState(0);
   //initialise the record list
   const [timestamps, setTimestamps] = useState([]);
+  //displaying alert Function
+  const [displayAlert, setDisplayAlert] = useState(false);
   //counting function
   const AllowCount = () => {
     setAllowCount(!allowCount);
   };
+
   //default word
   let btnColor = allowCount ? "warning" : "success";
 
@@ -68,16 +70,12 @@ const Timer = () => {
     parseInt(time.hours) === 0 && parseInt(time.min) === 0 ? false : true;
   //record timestamp function
   const RecordTimestamp = (time, index) => {
+    if (!allowCount) return;
     if (timestamps.length > 19) {
-      alert(
-        "Max number or record reached! (20 max)" +
-          "\n" +
-          "Press reset to restart timer or delete existing record."
-      );
+      setDisplayAlert(true);
       return;
     }
     let record = undefined;
-    if (!allowCount) return;
     if (displayHours) {
       record =
         time.hours +
@@ -105,6 +103,22 @@ const Timer = () => {
   };
   return (
     <>
+      {displayAlert && (
+        <div className="alert-container">
+          <div className="alert-box">
+            <span>Max number or record reached! (20 max)</span>
+            <span>Press reset to restart timer or delete existing record.</span>
+          </div>
+          <button
+            className="btn"
+            onClick={() => {
+              setDisplayAlert(false);
+            }}
+          >
+            X
+          </button>
+        </div>
+      )}
       <div className="displaytimer">
         <div className="row h-100 justify-content-center">
           {displayHours && (

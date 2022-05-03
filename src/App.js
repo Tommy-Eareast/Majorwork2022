@@ -7,6 +7,15 @@ import "bootstrap/dist/css/bootstrap.css";
 export default function App() {
   const [mode, setMode] = useState(true);
   let btnCom = "btn col col-6 ";
+  let clockDisplay = "d-block";
+  let timerDisplay = "d-none";
+  if (!mode) {
+    clockDisplay = "d-none";
+    timerDisplay = "d-block";
+  } else {
+    clockDisplay = "d-block";
+    timerDisplay = "d-none";
+  }
   return (
     <>
       <div className="bgcolor">
@@ -34,9 +43,11 @@ export default function App() {
             </button>
           </div>
         </nav>
-        <div>
-          {mode && <Clock />}
-          {!mode && <Timer />}
+        <div className={clockDisplay}>
+          <Clock />
+        </div>
+        <div className={timerDisplay}>
+          <Timer />
         </div>
       </div>
     </>

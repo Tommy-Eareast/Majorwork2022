@@ -115,3 +115,31 @@ button {
 .topdiv {
   padding-top: 22vh;
 }
+.alert-container {
+  position: absolute;
+  top: 33%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  color: #fff;
+  background-color: red;
+  border-radius: 10px;
+}
+.alert-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  padding: 3rem 0 3rem 3rem;
+  font-size: 1.6vw;
+}
+.alert-container button {
+  color: #fff;
+  align-self: flex-start;
+}
