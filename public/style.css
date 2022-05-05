@@ -84,11 +84,11 @@ button {
 }
 .displayrecord .record {
   border-top: 1px dashed rgba(236, 182, 2, 1);
-  padding: 2px;
+  height: 2.4rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 33.33%;
+  width: 45%;
   overflow: hidden;
 }
 .email-icon .before-hover,

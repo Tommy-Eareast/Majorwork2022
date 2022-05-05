@@ -15,27 +15,27 @@ let btn12 = btnCom + btnOff;
 let btn24 = btnCom + btnOn;
 const Clock = () => {
   //primary function: displaying time, initial first display and now variable
-  let now = new Date().toLocaleString();
+  let now = new Date().toLocaleString("en-AU", { hour12: false });
   //set up the main object and its function
   const [time, setTime] = useState(now);
   //create a updating function that convert time object into string for display
   const UpdateTime = () => {
-    now = new Date().toLocaleString();
+    now = new Date().toLocaleString("en-AU", { hour12: false });
     setTime(now);
   };
   //repeating above function to renew the time displayed
   setInterval(() => {
     UpdateTime();
-  }, 1000);
+  }, 250);
   //date and time array
-  let array = time.split(" ");
+  let array = time.split(", ");
   //date display
   let dateArray = array[0].split("/");
   //format the time variable for separate display
   let timeArray = array[1].split(":");
   let hour = parseInt(timeArray[0]);
+  let date = parseInt(dateArray[0]);
   let month = parseInt(dateArray[1]);
-  let date = parseInt(dateArray[2]);
   //exclude special case: 24th hour
   if (hour === 24) {
     hour = 0;
@@ -110,7 +110,7 @@ const Clock = () => {
             <span className="displayfont">/</span>
           </div>
           <div className="col-2 text-center">
-            <span className="displayfont">{dateArray[0].slice(-2)}</span>
+            <span className="displayfont">{dateArray[2].slice(-2)}</span>
           </div>
         </div>
         <div className="row justify-content-around">

@@ -132,7 +132,7 @@ const Timer = () => {
             </div>
           )}
           {displayMin && (
-            <div className="col-1 text-center">
+            <div className="col-2 text-center">
               <span className="displayfont">{time.min}</span>
             </div>
           )}
@@ -141,13 +141,16 @@ const Timer = () => {
               <span className="displayfont">:</span>
             </div>
           )}
-          <div className="col-1 text-center">
+          <div className="col-2 text-center">
             <span className="displayfont">{time.sec}</span>
           </div>
           <div className="col-1 text-center">
             <span className="displayfont">.</span>
           </div>
-          <div className="col-2 text-center">
+          <div
+            className="col-2 text-center"
+            style={{ width: "20%", marginLeft: "10px" }}
+          >
             <span className="displayfont">{time.millisec}</span>
           </div>
         </div>
@@ -156,7 +159,7 @@ const Timer = () => {
           <div className="storage">
             {timestamps.map((timestamp, index, key) => (
               <div className="record">
-                No.{index + 1} : {timestamp.record}
+                No.{index + 1}: {timestamp.record}
                 <button
                   className="smallbtn"
                   onClick={() => RemoveRecord(index)}
