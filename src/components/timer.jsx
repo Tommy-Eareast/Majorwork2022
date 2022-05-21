@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 //this is not a good practice but since only a few component requires css in this page, it is utilised
 
 //btn appearance through bootstrap css
-let btnCom = "btn col-4 btn-";
+let btnCom = "btn col-3 btn-";
 //timer component
 const Timer = () => {
   //only allow counting when this true
@@ -122,23 +122,29 @@ const Timer = () => {
     <>
       <div className="display_timer">
         <div className="display_area_timer">
-          <div className="display_container display_container_timer row justify-content-center">
+          <div className="w-100 display_container display_container_timer">
             {displayHours && (
-              <span className="display_font col-auto">{time.hours}</span>
+              <span className="display_font display_counter">{time.hours}</span>
             )}
-            {displayHours && <span className="display_font col-auto">:</span>}
+            {displayHours && (
+              <span className="display_font display_counter col-auto">:</span>
+            )}
             {displayMin && (
-              <span className="display_font col-auto">{time.min}</span>
+              <span className="display_font display_counter">{time.min}</span>
             )}
-            {displayMin && <span className="display_font col-auto">:</span>}
-            <span className="display_font col-auto">{time.sec}</span>
-            <span className="display_font display_font_norm col-auto">.</span>
-
-            <span className="display_font col-auto" style={{ fontSize: "5vw" }}>
+            {displayMin && (
+              <span className="display_font display_counter col-auto">:</span>
+            )}
+            <span className="display_font display_counter">{time.sec}</span>
+            <span className="display_font display_counter col-auto">.</span>
+            <span
+              className="display_font display_counter"
+              style={{ fontSize: "5vw" }}
+            >
               {time.millisec}
             </span>
           </div>
-          <div className="w-100 display_record">
+          <div className="display_record">
             Recorded Timestamp:
             <div className="data_table">
               {timestamps.map((timestamp, index, key) => (
@@ -156,15 +162,16 @@ const Timer = () => {
           </div>
         </div>
         <div className="button_bar row justify-content-between">
-          <button className={btnCom + btnColor} onClick={() => AllowCount()}>
-            {allowCount ? "Stop" : "Start"}
-          </button>
           <button
             className={btnCom + "info"}
             onClick={() => RecordTimestamp(time)}
           >
             Record
           </button>
+          <button className={btnCom + btnColor} onClick={() => AllowCount()}>
+            {allowCount ? "Stop" : "Start"}
+          </button>
+
           <button className={btnCom + "danger"} onClick={() => ResetTimer()}>
             Reset
           </button>

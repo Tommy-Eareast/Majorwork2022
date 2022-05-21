@@ -3,10 +3,10 @@ import "./clock.css";
 
 //true for 24 hours, false for AM/PM
 let format = true;
-let btnCom = "btn col-6 animation";
+let btnCom = "btn col-4 animation";
 //className for after animation
-let btnOn = " btn-primary col-md-7";
-let btnOff = " btn-secondary col-md-5";
+let btnOn = " btnOn col-md-7";
+let btnOff = " btnOff col-md-3";
 //className for animation
 let aniOn = " animationOn";
 let aniOff = " animationOff";
@@ -79,26 +79,35 @@ const Clock = () => {
     <>
       <div className="display_clock">
         <div className="display_area_clock">
-          <div className="row justify-content-center align-items-center">
-            <div className="display_container text-center">
-              <span className="display_font col-auto">{String(hour)}</span>
-              <span className="display_font col-auto">:</span>
-              <span className="display_font col-auto">{timeArray[1]}</span>
-              <span className="display_font col-auto">:</span>
-              <span className="display_font col-auto">{timeArray[2]}</span>
-              <span className={"display_font col-auto" + apm}>{apmText}</span>
-            </div>
+          <div className="display_container text-center">
+            <span
+              className={"display_font" + apm}
+              style={{ width: "8.33%" }}
+            ></span>
+            <span className="display_time display_font">{String(hour)}</span>
+            <span className="display_time display_font col-auto">:</span>
+            <span className="display_time display_font">{timeArray[1]}</span>
+            <span className="display_time display_font col-auto">:</span>
+            <span className="display_time display_font">{timeArray[2]}</span>
+            <span className={"display_font apm col-1 " + apm}>{apmText}</span>
           </div>
-          <div className="row justify-content-center">
-            <div className="display_container text-center">
-              <span className="display_font col-auto">{date}</span>
-              <span className="display_font col-auto">-</span>
-              <span className="display_font col-auto">{month}</span>
-              <span className="display_font col-auto">-</span>
-              <span className="display_font col-auto">
-                {dateArray[2].slice(-2)}
-              </span>
-            </div>
+          <span
+            style={{
+              backgroundColor: "#ffffff",
+              width: "30%",
+              height: "2px",
+              border: "1px solid #ffffff",
+              margin: "2%",
+            }}
+          ></span>
+          <div className="display_container text-center">
+            <span className="display_date display_font">{date}</span>
+            <span className="display_date display_font col-auto">-</span>
+            <span className="display_date display_font">{month}</span>
+            <span className="display_date display_font col-auto">-</span>
+            <span className="display_date display_font">
+              {dateArray[2].slice(-2)}
+            </span>
           </div>
         </div>
         <div className="button_bar row justify-content-around">

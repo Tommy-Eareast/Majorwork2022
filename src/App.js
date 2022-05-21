@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.css";
 //true for Clock, false for Timer
 export default function App() {
   const [mode, setMode] = useState(true);
-  let btnCom = "btn col col-6 ";
+  let btnCom = "btn col col-5 ";
   let clockDisplay = "d-block";
   let timerDisplay = "d-none";
   if (!mode) {
@@ -18,8 +18,8 @@ export default function App() {
   }
   return (
     <>
-      <nav>
-        <div className="row w-100">
+      <nav className="nav_btn">
+        <div className="row w-100 justify-content-around">
           <button
             onClick={() => setMode(true)}
             className={
