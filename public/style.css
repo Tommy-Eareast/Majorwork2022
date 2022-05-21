@@ -1,25 +1,10 @@
-@media (min-width: 768px) {
-  #box {
-    background-image: url(https://picsum.photos/1366/768?blur=3);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: center;
-  }
-}
-@media (max-width: 768px) {
-  #box {
-    background-image: url(https://picsum.photos/768/1366?blur=3);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: center;
-  }
-}
+@import url("http://fonts.cdnfonts.com/css/seven-segment");
 body {
-  width: 100%;
-  min-width: 375px;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
+  height: 100vh !important;
+  width: 98vw !important;
+  background-color: #333333 !important;
 }
 header {
   text-align: center;
@@ -41,37 +26,74 @@ footer a {
   color: #fff;
 }
 #box {
-  margin: 0px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #333333;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
   padding: 0px;
-  height: 100%;
-  width: 100%;
+  height: 100% !important;
+  width: 80%;
   z-index: 1000;
 }
-.bgcolor {
-  height: 100%;
-  margin: 0px;
-  background-color: rgba(41, 8, 73, 0.8);
+.main_container {
+  background-color: #333333 !important;
+  flex-grow: 1;
+  padding: 0;
 }
 .row {
   --bs-gutter-x: 0 !important;
 }
+.button_bar {
+  position: sticky;
+  bottom: 0;
+}
 button {
-  height: 2.6rem;
-  font-size: 1rem !important;
+  height: 8vh;
+  font-size: 3vh !important;
 }
-.displayfont {
-  font-size: 2.6rem;
+.display_font {
+  font-size: 10vw;
+  flex-shrink: 1 !important;
   color: rgba(255, 213, 36, 0.8);
+  padding: 10px;
+  font-family: "Seven Segment", sans-serif;
+  font-weight: normal;
+  font-style: italic;
 }
-.displayclock,
-.displaytimer {
+.display_clock,
+.display_timer {
   display: flex;
   flex-direction: column;
-  flex-grow: 2;
   justify-content: space-between;
-  min-height: 92.5vh;
+  height: 100% !important;
 }
-.displayrecord {
+.display_area_clock {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.display_area_timer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.display_container {
+  align-items: baseline;
+}
+.display_container_timer {
+  position: sticky;
+  top: 0;
+  background-color: #333333;
+  border-bottom: 5px solid rgba(236, 182, 2, 1);
+}
+.display_record {
   padding-left: 6px;
   font-size: 1.6vw !important;
   border-radius: 8px !important;
@@ -82,9 +104,10 @@ button {
     rgba(0, 0, 0, 0) 100%
   ) !important;
 }
-.displayrecord .record {
+.display_record .record {
   border-top: 1px dashed rgba(236, 182, 2, 1);
-  height: 2.4rem;
+  box-sizing: border-box !important;
+  padding: 4px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -100,23 +123,18 @@ button {
   display: none;
 }
 .smallbtn {
-  background: rgba(41, 8, 73, 0.8);
+  background-color: #333333;
   color: rgba(236, 182, 2, 1);
   border-radius: 10px;
   height: 2rem;
 }
-.storage {
-  height: 24rem;
+.data_table {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-}
-.topdiv {
-  padding-top: 22vh;
 }
 .alert-container {
-  position: absolute;
+  position: sticky;
   top: 33%;
   margin: 0 auto;
   left: 0;

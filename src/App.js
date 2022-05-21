@@ -18,37 +18,35 @@ export default function App() {
   }
   return (
     <>
-      <div className="bgcolor">
-        <nav>
-          <div className="row w-100">
-            <button
-              onClick={() => setMode(true)}
-              className={
-                mode
-                  ? btnCom + "bg-dark text-light"
-                  : btnCom + "bg-light text-dark"
-              }
-            >
-              Clock
-            </button>
-            <button
-              onClick={() => setMode(false)}
-              className={
-                mode
-                  ? btnCom + "bg-light text-dark"
-                  : btnCom + "bg-dark text-light"
-              }
-            >
-              Timer
-            </button>
-          </div>
-        </nav>
-        <div className={clockDisplay}>
-          <Clock />
+      <nav>
+        <div className="row w-100">
+          <button
+            onClick={() => setMode(true)}
+            className={
+              mode
+                ? btnCom + "bg-dark text-light"
+                : btnCom + "bg-light text-dark"
+            }
+          >
+            Clock
+          </button>
+          <button
+            onClick={() => setMode(false)}
+            className={
+              mode
+                ? btnCom + "bg-light text-dark"
+                : btnCom + "bg-dark text-light"
+            }
+          >
+            Timer
+          </button>
         </div>
-        <div className={timerDisplay}>
-          <Timer />
-        </div>
+      </nav>
+      <div className={clockDisplay + " main_container"}>
+        <Clock />
+      </div>
+      <div className={timerDisplay + " main_container"}>
+        <Timer />
       </div>
     </>
   );

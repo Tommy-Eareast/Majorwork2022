@@ -13,7 +13,7 @@ const Timer = () => {
   //initialise the record list
   const [timestamps, setTimestamps] = useState([]);
   //displaying alert Function
-  const [displayAlert, setDisplayAlert] = useState(false);
+  // const [displayAlert, setDisplayAlert] = useState(false);
   //counting function
   const AllowCount = () => {
     setAllowCount(!allowCount);
@@ -30,8 +30,8 @@ const Timer = () => {
     if (allowCount) {
       //set up looping function
       counting = setInterval(() => {
-        setCounter((counter) => counter + 17);
-      }, 17);
+        setCounter((counter) => counter + 47);
+      }, 47);
     }
     //stop timer when allowCount is false
     return () => clearInterval(counting);
@@ -71,10 +71,10 @@ const Timer = () => {
   //record timestamp function
   const RecordTimestamp = (time, index) => {
     if (!allowCount) return;
-    if (timestamps.length > 19) {
-      setDisplayAlert(true);
-      return;
-    }
+    // if (timestamps.length > 49) {
+    //   setDisplayAlert(true);
+    //   return;
+    // }
     let record = undefined;
     if (displayHours) {
       record =
@@ -101,76 +101,61 @@ const Timer = () => {
     newRecord.splice(index, 1);
     setTimestamps(newRecord);
   };
+  //code for alert box
+  // {displayAlert && (
+  //   <div className="alert-container">
+  //     <div className="alert-box">
+  //       <span>Max number or record reached! (50 max)</span>
+  //       <span>Press reset to restart timer or delete existing record.</span>
+  //     </div>
+  //     <button
+  //       className="btn"
+  //       onClick={() => {
+  //         setDisplayAlert(false);
+  //       }}
+  //     >
+  //       X
+  //     </button>
+  //   </div>
+  // )}
   return (
     <>
-      {displayAlert && (
-        <div className="alert-container">
-          <div className="alert-box">
-            <span>Max number or record reached! (20 max)</span>
-            <span>Press reset to restart timer or delete existing record.</span>
+      <div className="display_timer">
+        <div className="display_area_timer">
+          <div className="display_container display_container_timer row justify-content-center">
+            {displayHours && (
+              <span className="display_font col-auto">{time.hours}</span>
+            )}
+            {displayHours && <span className="display_font col-auto">:</span>}
+            {displayMin && (
+              <span className="display_font col-auto">{time.min}</span>
+            )}
+            {displayMin && <span className="display_font col-auto">:</span>}
+            <span className="display_font col-auto">{time.sec}</span>
+            <span className="display_font display_font_norm col-auto">.</span>
+
+            <span className="display_font col-auto" style={{ fontSize: "5vw" }}>
+              {time.millisec}
+            </span>
           </div>
-          <button
-            className="btn"
-            onClick={() => {
-              setDisplayAlert(false);
-            }}
-          >
-            X
-          </button>
-        </div>
-      )}
-      <div className="displaytimer">
-        <div className="row h-100 justify-content-center">
-          {displayHours && (
-            <div className="col-2 text-center">
-              <span className="displayfont">{time.hours}</span>
+          <div className="w-100 display_record">
+            Recorded Timestamp:
+            <div className="data_table">
+              {timestamps.map((timestamp, index, key) => (
+                <div className="record">
+                  No.{index + 1}: {timestamp.record}
+                  <button
+                    className="smallbtn"
+                    onClick={() => RemoveRecord(index)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              ))}
             </div>
-          )}
-          {displayHours && (
-            <div className="col-1 text-center">
-              <span className="displayfont">:</span>
-            </div>
-          )}
-          {displayMin && (
-            <div className="col-2 text-center">
-              <span className="displayfont">{time.min}</span>
-            </div>
-          )}
-          {displayMin && (
-            <div className="col-1 text-center">
-              <span className="displayfont">:</span>
-            </div>
-          )}
-          <div className="col-2 text-center">
-            <span className="displayfont">{time.sec}</span>
-          </div>
-          <div className="col-1 text-center">
-            <span className="displayfont">.</span>
-          </div>
-          <div
-            className="col-2 text-center"
-            style={{ width: "20%", marginLeft: "10px" }}
-          >
-            <span className="displayfont">{time.millisec}</span>
           </div>
         </div>
-        <div className="w-100 displayrecord">
-          Recorded Timestamp:
-          <div className="storage">
-            {timestamps.map((timestamp, index, key) => (
-              <div className="record">
-                No.{index + 1}: {timestamp.record}
-                <button
-                  className="smallbtn"
-                  onClick={() => RemoveRecord(index)}
-                >
-                  Delete
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="row justify-content-between">
+        <div className="button_bar row justify-content-between">
           <button className={btnCom + btnColor} onClick={() => AllowCount()}>
             {allowCount ? "Stop" : "Start"}
           </button>

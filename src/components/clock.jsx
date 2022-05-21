@@ -77,48 +77,36 @@ const Clock = () => {
   date = date < 10 ? "0" + date : date;
   return (
     <>
-      <div className="displayclock">
-        <div className="row justify-content-center topdiv">
-          <div className="col-2 text-center">
-            <span className="displayfont">{String(hour)}</span>
+      <div className="display_clock">
+        <div className="display_area_clock">
+          <div className="row justify-content-center align-items-center">
+            <div className="display_container text-center">
+              <span className="display_font col-auto">{String(hour)}</span>
+              <span className="display_font col-auto">:</span>
+              <span className="display_font col-auto">{timeArray[1]}</span>
+              <span className="display_font col-auto">:</span>
+              <span className="display_font col-auto">{timeArray[2]}</span>
+              <span className={"display_font col-auto" + apm}>{apmText}</span>
+            </div>
           </div>
-          <div className="col-1 text-center">
-            <span className="displayfont">:</span>
-          </div>
-          <div className="col-2 text-center">
-            <span className="displayfont">{timeArray[1]}</span>
-          </div>
-          <div className="col-1 text-center">
-            <span className="displayfont">:</span>
-          </div>
-          <div className="col-2 text-center">
-            <span className="displayfont">{timeArray[2]}</span>
-          </div>
-          <div className={"col-2 text-center displayfont" + apm}>{apmText}</div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-2 text-center">
-            <span className="displayfont">{date}</span>
-          </div>
-          <div className="col-1 text-center">
-            <span className="displayfont">/</span>
-          </div>
-          <div className="col-2 text-center">
-            <span className="displayfont">{month}</span>
-          </div>
-          <div className="col-1 text-center">
-            <span className="displayfont">/</span>
-          </div>
-          <div className="col-2 text-center">
-            <span className="displayfont">{dateArray[2].slice(-2)}</span>
+          <div className="row justify-content-center">
+            <div className="display_container text-center">
+              <span className="display_font col-auto">{date}</span>
+              <span className="display_font col-auto">-</span>
+              <span className="display_font col-auto">{month}</span>
+              <span className="display_font col-auto">-</span>
+              <span className="display_font col-auto">
+                {dateArray[2].slice(-2)}
+              </span>
+            </div>
           </div>
         </div>
-        <div className="row justify-content-around">
+        <div className="button_bar row justify-content-around">
           <button onClick={() => Change12()} className={btn12}>
-            12 Hours Display
+            AM/PM
           </button>
           <button onClick={() => Change24()} className={btn24}>
-            24 Hours Display
+            24 Hours
           </button>
         </div>
       </div>
