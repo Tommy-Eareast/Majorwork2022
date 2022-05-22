@@ -110,7 +110,7 @@ const Clock = () => {
             </span>
           </div>
         </div>
-        <div className="button_bar row justify-content-around">
+        <div className="btn_bar_clock row justify-content-around">
           <button onClick={() => Change12()} className={btn12}>
             AM/PM
           </button>

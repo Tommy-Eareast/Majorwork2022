@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 //this is not a good practice but since only a few component requires css in this page, it is utilised
 
 //btn appearance through bootstrap css
-let btnCom = "btn col-3 btn-";
+let btnCom = "btn col-5 btn-";
 //timer component
 const Timer = () => {
   //only allow counting when this true
@@ -20,7 +20,8 @@ const Timer = () => {
   };
 
   //default word
-  let btnColor = allowCount ? "warning" : "success";
+  let btnColor1 = allowCount ? "warning" : "success";
+  let btnColor2 = allowCount ? "info" : "danger";
 
   //counting function
   useEffect(() => {
@@ -122,7 +123,7 @@ const Timer = () => {
     <>
       <div className="display_timer">
         <div className="display_area_timer">
-          <div className="w-100 display_container display_container_timer">
+          <div className="display_container display_container_timer">
             {displayHours && (
               <span className="display_font display_counter">{time.hours}</span>
             )}
@@ -161,19 +162,15 @@ const Timer = () => {
             </div>
           </div>
         </div>
-        <div className="button_bar row justify-content-between">
+        <div className="btn_bar_timer row justify-content-between">
           <button
-            className={btnCom + "info"}
-            onClick={() => RecordTimestamp(time)}
+            className={btnCom + btnColor2}
+            onClick={() => (allowCount ? RecordTimestamp(time) : ResetTimer())}
           >
-            Record
+            {allowCount ? "Record" : "Reset"}
           </button>
-          <button className={btnCom + btnColor} onClick={() => AllowCount()}>
+          <button className={btnCom + btnColor1} onClick={() => AllowCount()}>
             {allowCount ? "Stop" : "Start"}
-          </button>
-
-          <button className={btnCom + "danger"} onClick={() => ResetTimer()}>
-            Reset
           </button>
         </div>
       </div>

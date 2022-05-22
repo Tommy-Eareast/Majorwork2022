@@ -1,4 +1,4 @@
-@import url("http://fonts.cdnfonts.com/css/seven-segment");
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 body {
   margin: 0;
   padding: 0;
@@ -42,7 +42,8 @@ footer a {
   z-index: 1000;
 }
 .nav_btn {
-  margin-top: 5vh;
+  margin-top: 6vh;
+  margin-bottom: 2vh;
   z-index: 1000 !important;
 }
 .main_container {
@@ -53,19 +54,42 @@ footer a {
 .row {
   --bs-gutter-x: 0 !important;
 }
-.button_bar {
+.btn_bar_clock {
   position: sticky;
   bottom: 0;
   background-color: #333333 !important;
   padding-bottom: 5vh;
   z-index: 1000 !important;
 }
+.btn_bar_timer {
+  position: sticky;
+  bottom: 0;
+  width: 66.67%;
+  background-color: #333333 !important;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  z-index: 1000 !important;
+  border-top: 2px solid #ff7810;
+  border-radius: 20px;
+}
 button {
   height: 8vh;
   font-size: 3vh !important;
   border-radius: 20px !important;
-  box-shadow: 2px -2px #000000;
+  box-shadow: 2px 2px #000000;
 }
+button:hover {
+  font-size: 3.2vh !important;
+}
+button:active {
+  box-shadow: 0px 0px #000000;
+  transform: translate(2px, 2px);
+  outline: none !important;
+}
+button:focus {
+  outline: none !important;
+}
+
 .btnOn {
   background-color: #103d77 !important;
   color: #ffffff !important;
@@ -82,10 +106,10 @@ button {
   min-width: 8vw;
   font-size: 12vw;
   color: #ff7810;
-  font-family: "Seven Segment", sans-serif;
+  font-family: "Share Tech Mono", monospace;
   font-weight: normal;
   font-style: italic;
-  text-shadow: 2px 2px #000000;
+  text-shadow: 4px 2px #000000;
 }
 .display_time {
   font-weight: bold !important;
@@ -95,9 +119,6 @@ button {
 .display_date {
   font-size: 8vw !important;
   min-width: 6vw !important;
-}
-.display_counter {
-  margin-top: 4%;
 }
 .apm {
   font-size: 4vw;
@@ -110,9 +131,13 @@ button {
   justify-content: space-between;
   min-height: 100% !important;
 }
+.display_timer {
+  align-items: center;
+}
 .display_area_clock {
   flex-grow: 1;
   display: flex;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -120,6 +145,7 @@ button {
 }
 .display_area_timer {
   flex-grow: 1;
+  min-width: 80% !important;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -129,23 +155,26 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  max-height: 30vw !important;
+  max-height: 28vw !important;
   align-items: baseline;
 }
 .display_container_timer {
   position: sticky;
+  width: 80%;
   top: 0;
   background-color: #333333;
   border-bottom: 2px solid #ff7810;
   border-radius: 20px;
+  padding-top: 5vh;
   margin-bottom: 2vh;
 }
 .display_record {
   box-sizing: border-box;
   border-top: 5px solid #ff7810;
   border-bottom: 5px solid #ff7810;
+  margin-bottom: 2vh;
   width: 40%;
-  min-width: 350px;
+  min-width: 300px;
   padding-left: 6px;
   font-size: 1.6vw !important;
   border-radius: 20px !important;
@@ -155,7 +184,6 @@ button {
     rgba(255, 120, 16, 0.3) 10%,
     rgba(0, 0, 0, 0) 100%
   ) !important;
-  margin-bottom: 20px;
 }
 .display_record .record {
   border-top: 1px dashed #ff7810;
@@ -165,7 +193,7 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  min-width: 350px;
+  min-width: 300px;
   overflow: hidden;
 }
 .email-icon .before-hover,
@@ -181,6 +209,7 @@ button {
   color: #ff7810;
   border-radius: 10px;
   height: 2rem;
+  transition: 0.2s;
 }
 .data_table {
   display: flex;
