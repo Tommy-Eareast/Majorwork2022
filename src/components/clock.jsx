@@ -97,7 +97,7 @@ const Clock = () => {
               width: "30%",
               height: "2px",
               border: "1px solid #ffffff",
-              margin: "2%",
+              margin: "4%",
             }}
           ></span>
           <div className="display_container text-center">
