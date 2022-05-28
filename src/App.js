@@ -28,7 +28,7 @@ export default function App() {
                 : btnCom + "bg-light text-dark"
             }
           >
-            Clock
+            CLOCK
           </button>
           <button
             onClick={() => setMode(false)}
@@ -38,7 +38,7 @@ export default function App() {
                 : btnCom + "bg-dark text-light"
             }
           >
-            Timer
+            TIMER
           </button>
         </div>
       </nav>

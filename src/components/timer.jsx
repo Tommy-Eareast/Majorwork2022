@@ -78,17 +78,9 @@ const Timer = () => {
     // }
     let record = undefined;
     if (displayHours) {
-      record =
-        time.hours +
-        " h " +
-        time.min +
-        " m " +
-        time.sec +
-        " s " +
-        time.millisec +
-        " ms";
+      record = time.hours + " h " + time.min + " m " + time.sec + " s";
     } else if (displayMin) {
-      record = time.min + " m " + time.sec + " s " + time.millisec + " ms";
+      record = time.min + " m " + time.sec + " s";
     } else {
       record = time.sec + " s " + time.millisec + " ms";
     }
@@ -146,17 +138,12 @@ const Timer = () => {
             </span>
           </div>
           <div className="display_record">
-            Recorded Timestamp:
+            Recorded Timestamp
             <div className="data_table">
               {timestamps.map((timestamp, index, key) => (
                 <div className="record">
                   No.{index + 1}: {timestamp.record}
-                  <button
-                    className="smallbtn"
-                    onClick={() => RemoveRecord(index)}
-                  >
-                    Delete
-                  </button>
+                  <button onClick={() => RemoveRecord(index)}>X</button>
                 </div>
               ))}
             </div>
@@ -167,10 +154,10 @@ const Timer = () => {
             className={btnCom + btnColor2}
             onClick={() => (allowCount ? RecordTimestamp(time) : ResetTimer())}
           >
-            {allowCount ? "Record" : "Reset"}
+            {allowCount ? "RECORD" : "RESET"}
           </button>
           <button className={btnCom + btnColor1} onClick={() => AllowCount()}>
-            {allowCount ? "Stop" : "Start"}
+            {allowCount ? "STOP" : "START"}
           </button>
         </div>
       </div>

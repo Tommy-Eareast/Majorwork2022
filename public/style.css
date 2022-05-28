@@ -5,6 +5,7 @@ body {
   height: 100vh !important;
   width: 98vw !important;
   background-color: #333333 !important;
+  font-family: "Share Tech Mono", monospace !important;
 }
 header {
   text-align: center;
@@ -64,27 +65,26 @@ footer a {
 .btn_bar_timer {
   position: sticky;
   bottom: 0;
-  width: 66.67%;
+  width: 54vw;
   background-color: #333333 !important;
   padding-top: 5vh;
   padding-bottom: 5vh;
   z-index: 1000 !important;
-  border-top: 2px solid #ff7810;
+  border-top: 5px solid #ff7810;
   border-radius: 20px;
 }
 button {
   height: 8vh;
-  font-size: 3vh !important;
+  font-size: 1.8vw !important;
   border-radius: 20px !important;
   box-shadow: 2px 2px #000000;
-}
-button:hover {
-  font-size: 3.2vh !important;
+  overflow: hidden !important;
 }
 button:active {
   box-shadow: 0px 0px #000000;
   transform: translate(2px, 2px);
   outline: none !important;
+  font-size: 1.6vw !important;
 }
 button:focus {
   outline: none !important;
@@ -106,7 +106,6 @@ button:focus {
   min-width: 8vw;
   font-size: 12vw;
   color: #ff7810;
-  font-family: "Share Tech Mono", monospace;
   font-weight: normal;
   font-style: italic;
   text-shadow: 4px 2px #000000;
@@ -160,10 +159,11 @@ button:focus {
 }
 .display_container_timer {
   position: sticky;
-  width: 80%;
+  width: auto;
+  min-width: 54vw;
   top: 0;
   background-color: #333333;
-  border-bottom: 2px solid #ff7810;
+  border-bottom: 5px solid #ff7810;
   border-radius: 20px;
   padding-top: 5vh;
   margin-bottom: 2vh;
@@ -173,9 +173,8 @@ button:focus {
   border-top: 5px solid #ff7810;
   border-bottom: 5px solid #ff7810;
   margin-bottom: 2vh;
-  width: 40%;
+  width: 52vw;
   min-width: 300px;
-  padding-left: 6px;
   font-size: 1.6vw !important;
   border-radius: 20px !important;
   color: #ff7810;
@@ -184,17 +183,21 @@ button:focus {
     rgba(255, 120, 16, 0.3) 10%,
     rgba(0, 0, 0, 0) 100%
   ) !important;
+  text-align: center;
 }
 .display_record .record {
   border-top: 1px dashed #ff7810;
   box-sizing: border-box !important;
-  font-size: 1rem;
-  padding: 4px;
+  font-size: 2vw;
+  padding: 2px;
   display: flex;
+  width: 90%;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   min-width: 300px;
   overflow: hidden;
+  font-style: italic;
 }
 .email-icon .before-hover,
 .email-icon:hover .after-hover {
@@ -204,12 +207,24 @@ button:focus {
 .email-icon:hover .before-hover {
   display: none;
 }
-.smallbtn {
+.record button {
   background-color: #333333;
   color: #ff7810;
-  border-radius: 10px;
-  height: 2rem;
-  transition: 0.2s;
+  border-radius: 90px;
+  font-size: 1.4vw !important;
+  border: 2px solid #ff7810;
+  height: 5vh;
+  width: 5vh;
+  display: block;
+  padding: none !important;
+  box-shadow: 1px 1px #000000;
+  box-sizing: border-box;
+}
+.record button:active {
+  transform: translate(0px, 1.8px) !important;
+  box-shadow: 1px 0px #000000;
+  outline: none !important;
+  font-size: 1.4vw !important;
 }
 .data_table {
   display: flex;

@@ -93,10 +93,11 @@ const Clock = () => {
           </div>
           <span
             style={{
-              backgroundColor: "#ffffff",
+              backgroundColor: " #ff7810",
               width: "30%",
               height: "2px",
-              border: "1px solid #ffffff",
+              border: "3px solid #ff7810",
+              borderRadius: "50px",
               margin: "4%",
             }}
           ></span>
@@ -115,7 +116,7 @@ const Clock = () => {
             AM/PM
           </button>
           <button onClick={() => Change24()} className={btn24}>
-            24 Hours
+            24 HOURS
           </button>
         </div>
       </div>
