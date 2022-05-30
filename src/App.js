@@ -3,10 +3,12 @@ import Clock from "./components/clock";
 import Timer from "./components/timer";
 import "bootstrap/dist/css/bootstrap.css";
 
+var body = document.documentElement;
 //true for Clock, false for Timer
 export default function App() {
   const [mode, setMode] = useState(true);
-  let btnCom = "btn col col-5 ";
+  const [tipBox, setTipBox] = useState(true);
+  let btnCommon = "col col-5 ";
   let clockDisplay = "d-block";
   let timerDisplay = "d-none";
   if (!mode) {
@@ -18,14 +20,21 @@ export default function App() {
   }
   return (
     <>
+      <button
+        className={tipBox ? "tipBox" : "d-none"}
+        onClick={() => (setTipBox(false), body.requestFullscreen())}
+      >
+        Click to enter full screen mode. Press ESC or F11 to exit full screen
+        mode.
+      </button>
       <nav className="nav_btn">
         <div className="row w-100 justify-content-around">
           <button
             onClick={() => setMode(true)}
             className={
               mode
-                ? btnCom + "bg-dark text-light"
-                : btnCom + "bg-light text-dark"
+                ? btnCommon + "bg-dark text-light"
+                : btnCommon + "bg-light text-dark"
             }
           >
             CLOCK
@@ -34,8 +43,8 @@ export default function App() {
             onClick={() => setMode(false)}
             className={
               mode
-                ? btnCom + "bg-light text-dark"
-                : btnCom + "bg-dark text-light"
+                ? btnCommon + "bg-light text-dark"
+                : btnCommon + "bg-dark text-light"
             }
           >
             TIMER

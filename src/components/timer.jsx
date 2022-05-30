@@ -138,7 +138,7 @@ const Timer = () => {
             </span>
           </div>
           <div className="display_record">
-            Recorded Timestamp
+            RECORDED TIMESTAMP
             <div className="data_table">
               {timestamps.map((timestamp, index, key) => (
                 <div className="record">

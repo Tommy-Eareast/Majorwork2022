@@ -1,4 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+.tipBox {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: #333333;
+  opacity: 0.9;
+  color: #ffffff;
+  font-size: 1.8vw;
+}
 body {
   margin: 0;
   padding: 0;
@@ -6,6 +23,7 @@ body {
   width: 98vw !important;
   background-color: #333333 !important;
   font-family: "Share Tech Mono", monospace !important;
+  user-select: none;
 }
 header {
   text-align: center;
@@ -73,29 +91,71 @@ footer a {
   border-top: 5px solid #ff7810;
   border-radius: 20px;
 }
-button {
+.nav_btn button,
+.btn_bar_clock button,
+.btn_bar_timer button,
+.record button {
   height: 8vh;
-  font-size: 1.8vw !important;
-  border-radius: 20px !important;
+  font-size: 1.8vw;
+  border-radius: 20px;
   box-shadow: 2px 2px #000000;
   overflow: hidden !important;
+  border: 2px solid #000000 !important;
 }
-button:active {
+.nav_btn button:active,
+.btn_bar_clock button:active {
   box-shadow: 0px 0px #000000;
   transform: translate(2px, 2px);
   outline: none !important;
-  font-size: 1.6vw !important;
+  font-size: 1.6vw;
 }
-button:focus {
+.btn_bar_timer button:active {
+  box-shadow: 0px 0px #000000;
+  transform: translate(2px, 2px);
+  outline: none !important;
+  font-size: 1.6vw;
+}
+.nav_btn button:focus,
+.btn_bar_clock button:focus {
+  outline: none !important;
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px #000000 !important;
+  font-size: 1.6vw;
+}
+.btn_bar_timer button:focus {
+  box-shadow: 0px 0px #000000;
   outline: none !important;
 }
-
+.record button {
+  background-color: #333333;
+  color: #ff7810;
+  border-radius: 90px !important;
+  font-size: 3vh !important;
+  border: 2px solid #ff7810;
+  height: 5vh;
+  width: 5vh;
+  display: block;
+  padding: none !important;
+  box-sizing: border-box;
+}
+.record button:active {
+  transform: translate(1.8px, 1.8px) !important;
+  box-shadow: 0px 0px #000000;
+  outline: none !important;
+  font-size: 2.6vh !important;
+}
+.record button:focus {
+  transform: translate(1.8px, 1.8px) !important;
+  box-shadow: 0px 0px #000000;
+  outline: none !important;
+  font-size: 2.6vh !important;
+}
 .btnOn {
-  background-color: #103d77 !important;
-  color: #ffffff !important;
+  background-color: rgba(255, 120, 16, 0.4) !important;
 }
 .btnOff {
-  background-color: #fcd0a3 !important;
+  color: #ffffff !important;
+  background-color: rgb(255, 120, 16) !important;
 }
 .display_font {
   height: 12vh !important;
@@ -207,25 +267,7 @@ button:focus {
 .email-icon:hover .before-hover {
   display: none;
 }
-.record button {
-  background-color: #333333;
-  color: #ff7810;
-  border-radius: 90px;
-  font-size: 1.4vw !important;
-  border: 2px solid #ff7810;
-  height: 5vh;
-  width: 5vh;
-  display: block;
-  padding: none !important;
-  box-shadow: 1px 1px #000000;
-  box-sizing: border-box;
-}
-.record button:active {
-  transform: translate(0px, 1.8px) !important;
-  box-shadow: 1px 0px #000000;
-  outline: none !important;
-  font-size: 1.4vw !important;
-}
+
 .data_table {
   display: flex;
   flex-direction: column;

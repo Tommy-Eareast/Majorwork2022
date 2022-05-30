@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./clock.css";
 
-//true for 24 hours, false for AM/PM
-let format = true;
-let btnCom = "btn col-4 animation";
 //className for after animation
 let btnOn = " btnOn col-md-7";
 let btnOff = " btnOff col-md-3";
+//true for 24 hours, false for AM/PM
+let format = true;
+let btnCom = "col-4 animation";
 //className for animation
 let aniOn = " animationOn";
 let aniOff = " animationOff";
@@ -48,27 +48,29 @@ const Clock = () => {
   }
   //change format to 12 hours display
   let Change12 = () => {
+    if (!format) {
+      return;
+    }
     format = false;
     //change the button size and color
     btn12 = btnCom + aniOn;
     btn24 = btnCom + aniOff;
     //make time for the animation to play before changing class
-    setTimeout(() => {
-      btn12 += btnOn;
-      btn24 += btnOff;
-    }, 200);
+    btn12 += btnOn;
+    btn24 += btnOff;
   };
   //change format to 24 hours display
   let Change24 = () => {
+    if (format) {
+      return;
+    }
     format = true;
     //change the button size and color
     btn12 = btnCom + aniOff;
     btn24 = btnCom + aniOn;
     //make time for the animation to play before changing class
-    setTimeout(() => {
-      btn12 += btnOff;
-      btn24 += btnOn;
-    }, 200);
+    btn12 += btnOff;
+    btn24 += btnOn;
   };
 
   //add one 0 to front to placehold for single digit hours
