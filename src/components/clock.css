@@ -1,40 +1,26 @@
 @keyframes on {
   0% {
-    width: 41.67%;
-    background-color: #6c757d;
-  }
-  90% {
-    width: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
-    color: #000000;
+    width: 25%;
   }
   100% {
     width: 58.33%;
-    background-color: #0d6efd;
   }
 }
 @keyframes off {
   0% {
     width: 58.33%;
-    background-color: #0d6efd;
-  }
-  90% {
-    width: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
-    color: #000000;
   }
   100% {
-    width: 41.67%;
-    background-color: #6c757d;
+    width: 25%;
   }
 }
 @media only screen and (min-width: 768px) {
   .animationOn {
     animation-name: on;
-    animation-duration: 0.2s;
+    animation-duration: 0.6s;
   }
   .animationOff {
     animation-name: off;
-    animation-duration: 0.2s;
+    animation-duration: 0.6s;
   }
 }
