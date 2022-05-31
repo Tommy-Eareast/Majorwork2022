@@ -4,6 +4,7 @@ import Timer from "./components/timer";
 import "bootstrap/dist/css/bootstrap.css";
 
 var body = document.documentElement;
+
 //true for Clock, false for Timer
 export default function App() {
   const [mode, setMode] = useState(true);
@@ -18,11 +19,15 @@ export default function App() {
     clockDisplay = "d-block";
     timerDisplay = "d-none";
   }
+  function fullScreen() {
+    setTipBox(false);
+    body.requestFullscreen();
+  }
   return (
     <>
       <button
         className={tipBox ? "tipBox" : "d-none"}
-        onClick={() => (setTipBox(false), body.requestFullscreen())}
+        onClick={() => fullScreen()}
       >
         Click to enter full screen mode. Press ESC or F11 to exit full screen
         mode.
