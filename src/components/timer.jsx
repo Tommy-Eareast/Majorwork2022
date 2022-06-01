@@ -143,7 +143,9 @@ const Timer = () => {
               {timestamps.map((timestamp, index, key) => (
                 <div className="record">
                   No.{index + 1}: {timestamp.record}
-                  <button onClick={() => RemoveRecord(index)}>X</button>
+                  <button onClick={() => RemoveRecord(index)}>
+                    <i class="glyphicon glyphicon-remove"></i>
+                  </button>
                 </div>
               ))}
             </div>

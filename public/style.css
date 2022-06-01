@@ -19,7 +19,6 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh !important;
   width: 98vw !important;
   background-color: #333333 !important;
   font-family: "Share Tech Mono", monospace !important;
@@ -93,8 +92,7 @@ footer a {
 }
 .nav_btn button,
 .btn_bar_clock button,
-.btn_bar_timer button,
-.record button {
+.btn_bar_timer button {
   height: 8vh;
   font-size: 1.8vw;
   border-radius: 20px;
@@ -127,28 +125,20 @@ footer a {
   outline: none !important;
 }
 .record button {
-  background-color: #333333;
+  background-color: transparent;
   color: #ff7810;
   border-radius: 90px !important;
-  font-size: 3vh !important;
+  font-size: 2.6vh !important;
+  font-weight: lighter;
   border: 2px solid #ff7810;
   height: 5vh;
   width: 5vh;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: none !important;
   box-sizing: border-box;
-}
-.record button:active {
-  transform: translate(1.8px, 1.8px) !important;
-  box-shadow: 0px 0px #000000;
-  outline: none !important;
-  font-size: 2.6vh !important;
-}
-.record button:focus {
-  transform: translate(1.8px, 1.8px) !important;
-  box-shadow: 0px 0px #000000;
-  outline: none !important;
-  font-size: 2.6vh !important;
+  z-index: 500;
 }
 .btnOn {
   background-color: rgba(255, 120, 16, 0.4) !important;
@@ -227,6 +217,7 @@ footer a {
   border-radius: 20px;
   padding-top: 5vh;
   margin-bottom: 2vh;
+  z-index: 1000;
 }
 .display_record {
   box-sizing: border-box;
@@ -248,7 +239,8 @@ footer a {
 .display_record .record {
   border-top: 1px dashed #ff7810;
   box-sizing: border-box !important;
-  font-size: 2vw;
+  font-size: 2.8vh;
+  font-weight: 600 !important;
   padding: 2px;
   display: flex;
   width: 90%;
